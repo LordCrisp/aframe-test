@@ -1,0 +1,31 @@
+body
+  @include sidebar()
+
+main
+  .content
+    @include wrapper()
+    padding: 32px
+    background-color: $light__2
+    &__top
+      @extend .content
+      position: sticky
+      top: 0
+      height: 160px
+      h1
+        position: absolute
+        bottom: 6px
+        margin-bottom: 12px
+    &__main
+      @extend .content
+  hr
+    position: sticky
+    top: 160px
+    margin-top: 0
+    margin-right: 64px
+    background-color: $light__2
+
+
+/*-- Desktop only styles
+@media only screen and (min-width: 960px)
+  main
+    background-color: $light__2

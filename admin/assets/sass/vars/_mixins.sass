@@ -1,0 +1,97 @@
+/*-- Vendor ease mixin
+@mixin vendor ($property, $value)
+  -webkit-#{$property}: $value
+  -moz-#{$property}: $value
+  -ms-#{$property}: $value
+  -o-#{$property}: $value
+  #{$property}: $value
+
+/*-- Shadow mixin
+@mixin box-shadow ($level)
+  @if $level == 1
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+  @else if $level == 2
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+  @else if $level == 3
+          box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+  @else if $level == 4
+          box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+  @else if $level == 5
+          box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)
+
+/*-- Border-radius mixin
+@mixin border-radius ($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+
+/*-- Wrapper mixin
+@mixin wrapper ($width: 1400px, $spacing: 16px, $second_break: 1200px)
+  @media only screen and (max-width: $second_break)
+    padding: 0 $spacing
+  @media only screen and (min-width: $second_break + ($spacing * 2))
+    width: ($second_break - $sidebar_width)
+    margin: 0 auto
+    @media only screen and (min-width: $width)
+      width: ($width - $sidebar_width)
+
+/*-- Sidebar mixin
+  Include in sidebar parent, ex. <HERE> <sidebar> <other_content> </HERE>
+  Sidebar tag needs .navbar__main
+  Need to set the sidebar width in "vars/numbers" (for dynamic reasons)
+@mixin sidebar ($padding: 32px)
+  display: block
+  .navbar__main
+    display: none
+  @media only screen and (min-width: 960px)
+    display: grid
+    grid-template-columns: $sidebar_width auto
+    .navbar__main
+      display: block
+      position: sticky
+      top: 0
+      left: 0
+      height: 100vh
+      width: 100%
+      padding: $padding
+
+
+/*-- Animation mixin
+@mixin animation ($animation)
+  -webkit-animation: $animation
+  -o-animation: $animation
+  animation: $animation
+
+/*-- Transition mixin
+@mixin transition ($transition)
+  @include vendor(transition, $transition)
+
+/*-- Transform mixin
+@mixin transform ($transformation)
+  @include vendor (transform, $transformation)
+
+
+/* -- Flexbox mixin
+ $display options: flex = normal flex, inline = inline flex
+ $direction options: row = horizontal align, column = vertical align
+ $mainAxis & crossAxis option: start = flex-start, center = center, end = flex-end
+@mixin flex($display: flex, $direction: row, $mainAxis: center, $crossAxis: start, $wrap: none)
+  @if $display == inline
+      display: inline-flex
+  @else
+    display: flex
+  flex-direction: $direction
+  @if $mainAxis == start
+    justify-content: flex-start
+  @else if $mainAxis == end
+    justify-content: flex-end
+  @else
+    justify-content: $mainAxis
+  @if $crossAxis == start
+    align-items: flex-start
+  @else if $crossAxis == end
+    align-items: flex-end
+  @else
+    align-items: $crossAxis
+  @if $wrap != null
+    flex-wrap: $wrap

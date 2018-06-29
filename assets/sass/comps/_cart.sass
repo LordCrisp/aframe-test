@@ -1,0 +1,45 @@
+.cart
+  @include flex(flex, column)
+  table
+    border-collapse: collapse
+  &__top
+    background: $theme__main
+    color: $text__light
+  th, td
+    padding: 8px
+    border-bottom: 1px solid rgba($theme__main, 0.5)
+  &__sum
+    th, td
+      background: $theme__accent
+      color: $text__light
+  &__buy
+    text-align: center
+    background: #000
+    h4
+      margin: 0
+    a
+      color: $text__light
+    &--row
+      th, td
+        border-bottom: none
+
+  &__address
+    display: grid
+    grid-template-columns: 1fr 1fr
+    width: 100%
+  &__form
+    width: 100%
+    padding: 64px
+    textarea, input, select
+      display: inline-block
+      width: 100%
+      padding: 4px
+      margin-bottom: 8px
+      resize: none
+      font-family: Roboto, sans-serif
+    .city
+      display: grid
+      grid-template-columns: 20% auto
+      grid-gap: 20px
+    button
+      padding: 4px

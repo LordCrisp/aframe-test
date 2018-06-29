@@ -1,0 +1,26 @@
+/*-- Header (Device)
+.header__main
+  position: fixed
+  top: 0
+  left: 0
+  @include flex()
+  width: 100%
+  height: 86px
+  z-index: 1000
+  background-color: $theme__main
+  color: $text__light
+  &--home
+    @extend .header__main
+    background-color: transparent
+  h1
+    font-size: 36px
+  li
+    padding: 0 8px
+    font-size: 12px
+  a
+    //@include flex()
+    color: $text__light
+
+  #cart
+    position: absolute
+    right: 32px

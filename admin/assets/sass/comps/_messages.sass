@@ -1,0 +1,22 @@
+.message
+  display: flex
+  flex-direction: row
+  h2, h3, h4
+    margin: 0
+
+  div
+    border-radius: 5px
+    padding: 8px
+
+  &__userSide
+    @extend .message
+    justify-content: flex-end
+    div
+      background-color: $message-receiver
+
+  &__senderSide
+    @extend .message
+    justify-content: flex-start
+    div
+      color: white
+      background-color: $message-sender

@@ -1,0 +1,28 @@
+.style__font
+  font-family: Lobster, sans-serif
+  font-weight: normal
+main
+  @include wrapper(1200px)
+
+.login__main
+  @include wrapper(800px)
+  div
+    width: 100%
+    display: grid
+    grid-template-columns: 1fr 6fr
+    grid-gap: 16px
+    textarea, input, select
+      width: 100%
+      margin-top: 8px
+      padding: 4px
+      resize: none
+      font-family: Roboto, sans-serif
+    button
+      padding: 4px
+    .form__imageArea
+      display: grid
+      grid-template-columns: 2fr 1fr
+      border-bottom: 1px solid grey
+      border-top: 1px solid grey
+      figcaption
+        font-weight: 600

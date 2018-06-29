@@ -1,0 +1,102 @@
+/*-- Vendor ease mixin
+@mixin vendor ($property, $value)
+  -webkit-#{$property}: $value
+  -moz-#{$property}: $value
+  -ms-#{$property}: $value
+  -o-#{$property}: $value
+  #{$property}: $value
+
+/*-- Shadow mixin
+@mixin box-shadow ($level)
+  @if $level == 1
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+  @else if $level == 2
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+  @else if $level == 3
+          box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+  @else if $level == 4
+          box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+  @else if $level == 5
+          box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)
+
+/*-- Border-radius mixin
+@mixin border-radius ($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+
+/*-- Wrapper mixin
+@mixin wrapper ($width: 1400px, $spacing: 16px, $second_break: 1200px)
+  @media only screen and (max-width: $second_break)
+    padding: 0 $spacing
+  @media only screen and (min-width: $second_break + ($spacing * 2))
+    width: $second_break
+    margin: 0 auto
+    @media only screen and (min-width: $width)
+      width: $width
+
+/*-- Animation mixin
+@mixin animation ($animation)
+  -webkit-animation: $animation
+  -o-animation: $animation
+  animation: $animation
+
+/*-- Transition mixin
+@mixin transition ($transition)
+  @include vendor(transition, $transition)
+
+/*-- Transform mixin
+@mixin transform ($transformation)
+  @include vendor (transform, $transformation)
+
+/*-- Easings
+@mixin easing-standard ($duration)
+  -webkit-transition: all $duration cubic-bezier(0.4, 0.0, 0.2, 1)
+  -moz-transition: all $duration cubic-bezier(0.4, 0.0, 0.2, 1)
+  -ms-transition: all $duration cubic-bezier(0.4, 0.0, 0.2, 1)
+  -o-transition: all $duration cubic-bezier(0.4, 0.0, 0.2, 1)
+  transition: all $duration cubic-bezier(0.4, 0.0, 0.2, 1)
+@mixin easing-deceleration ($duration)
+  -webkit-transition: all $duration cubic-bezier(0.0, 0.0, 0.2, 1)
+  -moz-transition: all $duration cubic-bezier(0.0, 0.0, 0.2, 1)
+  -ms-transition: all $duration cubic-bezier(0.0, 0.0, 0.2, 1)
+  -o-transition: all $duration cubic-bezier(0.0, 0.0, 0.2, 1)
+  transition: all $duration cubic-bezier(0.0, 0.0, 0.2, 1)
+@mixin easing-acceleration ($duration)
+  -webkit-transition: all $duration cubic-bezier(0.4, 0.0, 1, 1)
+  -moz-transition: all $duration cubic-bezier(0.4, 0.0, 1, 1)
+  -ms-transition: all $duration cubic-bezier(0.4, 0.0, 1, 1)
+  -o-transition: all $duration cubic-bezier(0.4, 0.0, 1, 1)
+  transition: all $duration cubic-bezier(0.4, 0.0, 1, 1)
+@mixin easing-sharp ($duration)
+  -webkit-transition: all $duration cubic-bezier(0.4, 0.0, 0.6, 1)
+  -moz-transition: all $duration cubic-bezier(0.4, 0.0, 0.6, 1)
+  -ms-transition: all $duration cubic-bezier(0.4, 0.0, 0.6, 1)
+  -o-transition: all $duration cubic-bezier(0.4, 0.0, 0.6, 1)
+  transition: all $duration cubic-bezier(0.4, 0.0, 0.6, 1)
+
+/* -- Flexbox mixin
+ $display options: flex = normal flex, inline = inline flex
+ $direction options: row = horizontal align, column = vertical align
+ $mainAxis & crossAxis option: start = flex-start, center = flex-center, end = flex-end
+@mixin flex($display: flex, $direction: row, $mainAxis: center, $crossAxis: center, $wrap: none)
+  @if $display == inline
+      display: inline-flex
+  @else
+    display: flex
+  flex-direction: $direction
+  @if $mainAxis == start
+    justify-content: flex-start
+  @else if $mainAxis == end
+    justify-content: flex-end
+  @else
+    justify-content: $mainAxis
+  @if $crossAxis == start
+    align-items: flex-start
+  @else if $crossAxis == end
+    align-items: flex-end
+  @else
+    align-items: $crossAxis
+  @if $wrap != null
+    flex-wrap: $wrap
+

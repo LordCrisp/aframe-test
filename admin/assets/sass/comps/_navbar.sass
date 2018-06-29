@@ -1,0 +1,37 @@
+/*-- Header (Device)
+
+
+/*-- Header (Desktop)
+@media only screen and (min-width: 960px)
+  .navbar__main
+    position: relative
+    background: linear-gradient(to bottom right, $brand__dark, $brand__light)
+    color: $light__4
+    font-size: 16px
+    &--top
+      text-align: center
+      h2
+        margin: 8px 0 20px 0
+        font-size: 24px
+      hr
+        margin: 0 -32px 16px 16px
+    li
+      padding: 5px
+      a
+        @include flex(flex, row, start, center)
+        color: $light__4
+        text-decoration: none
+        i
+          padding-right: 6px
+    &--bottom
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      margin-bottom: 32px
+      li
+        text-align: center
+        padding: 8px
+        a
+          display: inline
+
